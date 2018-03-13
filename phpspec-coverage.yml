@@ -1,0 +1,14 @@
+extensions:
+    LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension: ~
+
+suites:
+  default:
+    namespace: Hexanet\SettingsBundle
+    psr4_prefix: Hexanet\SettingsBundle
+
+code_coverage:
+  format:
+    - text
+    - html
+  output:
+    html: var/build/coverage

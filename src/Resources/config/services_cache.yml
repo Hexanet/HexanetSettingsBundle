@@ -1,0 +1,7 @@
+services:
+    hexanet.cached_settings_manager:
+        class: Hexanet\SettingsBundle\Manager\CachedSettingsManager
+        decorates: hexanet.settings_manager
+        arguments:
+            - "@hexanet.cached_settings_manager.inner"
+            - "@cache.app"

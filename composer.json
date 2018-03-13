@@ -1,0 +1,22 @@
+{
+  "name": "hexanet/settings-bundle",
+  "description": "settings system",
+  "license": "MIT",
+  "type": "symfony-bundle",
+  "autoload": {
+    "psr-4": {
+      "Hexanet\\SettingsBundle\\": "src"
+    }
+  },
+  "require": {
+    "php": ">=7.2",
+    "symfony/dependency-injection": "~3.0",
+    "doctrine/orm": "~2.2,>=2.2.3"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "^3.2",
+    "leanphp/phpspec-code-coverage": "^3.1"
+  },
+  "minimum-stability": "alpha",
+  "prefer-stable": true
+}

@@ -1,0 +1,10 @@
+services:
+    hexanet.settings_manager:
+        class: Hexanet\SettingsBundle\Manager\SettingsManager
+        arguments:
+            - "@doctrine"
+
+    hexanet.settings_builder:
+        class: Hexanet\SettingsBundle\Schema\SettingsBuilder
+        arguments:
+            - "@hexanet.settings_manager"
