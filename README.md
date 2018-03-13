@@ -1,4 +1,4 @@
-# HexanetSettingsBundle
+# SettingsBundle
 
 [![Build Status](https://api.travis-ci.org/Hexanet/HexanetSettingsBundle.svg)](http://travis-ci.org/Hexanet/HexanetSettingsBundle) 	[![Total Downloads](https://poser.pugx.org/hexanet/settings-bundle/downloads.png)](https://packagist.org/packages/hexanet/settings-bundle) [![Latest stable Version](https://poser.pugx.org/hexanet/settings-bundle/v/stable.png)](https://packagist.org/packages/hexanet/settings-bundle)
 
@@ -109,4 +109,4 @@ Developed by [Hexanet](http://www.hexanet.fr/).
 
 ## License
 
-[MonologExtraBundle](https://github.com/Hexanet/MonologExtraBundle) is licensed under the [MIT license](LICENSE).
+[SettingsBundle](https://github.com/Hexanet/SettingsBundle) is licensed under the [MIT license](LICENSE).
