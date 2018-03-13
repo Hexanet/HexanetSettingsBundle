@@ -1,12 +1,10 @@
 # HexanetSettingsBundle
 
-Système de paramètres
+Settings system.
 
 ## Installation
 
-### Installation du bundle
-
-Installer le bundle avec composer :
+Install the bundle with composer:
 
 ```bash
 $ composer require hexanet/settings-bundle
@@ -14,7 +12,7 @@ $ composer require hexanet/settings-bundle
 
 ### Activation
 
-Il faut activer le bundle :
+You have to activate the bundle:
 
 ```php
 // in app/AppKernel.php
@@ -27,22 +25,22 @@ public function registerBundles() {
 }
 ```
 
-### Base de données
+### Database
 
-Il faut créer la table dans la base de données, pour ce faire on génére une migration :
+You have to create the table in the database, to do this we generate a migration:
 
 ```bash
 php app/console doctrine:migrations:diff --filter-expression="/setting$/"
 php app/console doctrine:migrations:migrate
 ```
 
-## Utilisation
+## Usage
 
-### Définir les paramètres
+### Define the settings
 
-Un schéma permet d'initialiser les paramètres en leur donnant une valeur par défaut.
+A schema allows you to initialize the settings by giving them a default value.
 
-Il faut d'abord créer une classe qui étend de l'interface `SchemaInterface` :
+First you need to create a class that extends from the `SchemaInterface` interface:
 
 ```php
 <?php
@@ -61,7 +59,7 @@ class AppSchema implements SchemaInterface
 }
 ```
 
-Puis la déclarer en service avec le tag `hexanet.settings_schema` :
+Then declare it as service with the `hexanet.settings_schema` tag :
 
 ```yml
     app.settings_schema:
@@ -69,31 +67,31 @@ Puis la déclarer en service avec le tag `hexanet.settings_schema` :
         tags: [hexanet.settings_schema]
 ```
 
-Après on peut utiliser la commande `sf hexanet:settings:setup` pour générer tous les paramètres, si un paramètre existe déjà la commande l'ignore.
+After that we can use the `sf hexanet: settings: setup` command to generate all the settings, if a setting already exists the command ignores it.
 
-### Exemples d'utilisations
+### Examples
 
 ```php
 $settingsManager = $this->get('hexanet.settings_manager');
 
-// écriture puis récupération
+// set and get
 $settingsManager->set('tva', 19.6);
 $settingsManager->get('tva');
 
-// vérifier si un paramètre existe
+// check if settign exists
 $settingsManager->has('tva');
 
-// récupérer tous les paramètres
+// get all settings
 $settingsManager->all();
 
-// récupérer un parmaètre qui n'existe pas
-$settingsManager->get('pas là');
-// une exception SettingNotFoundException est lancée
+// retrieve a non-existent setting 
+$settingsManager->get('not here');
+//  SettingNotFoundException is throw
 ```
 
 ## Production
 
-Pour la production il est possible d'activer le cache en modifiant la config du bundle :
+For production it's possible to activate the cache by modifying the config of the bundle:
 
 ```yaml
 // app/config/config_prod.yml
@@ -101,4 +99,4 @@ hexanet_settings:
     cache: true
 ```
 
-Le cache `app` de Symfony est utilisé (`@cache.app)`
+The Symfony cache `app` is used (`@cache.app)`
