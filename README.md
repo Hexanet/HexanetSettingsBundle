@@ -102,3 +102,11 @@ hexanet_settings:
 ```
 
 The Symfony cache `app` is used (`@cache.app)`
+
+## Credits
+
+Developed by [Hexanet](http://www.hexanet.fr/).
+
+## License
+
+[MonologExtraBundle](https://github.com/Hexanet/MonologExtraBundle) is licensed under the [MIT license](LICENSE).
