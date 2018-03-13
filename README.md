@@ -1,5 +1,7 @@
 # HexanetSettingsBundle
 
+[![Build Status](https://api.travis-ci.org/Hexanet/HexanetSettingsBundle.svg)](http://travis-ci.org/Hexanet/HexanetSettingsBundle) 	[![Total Downloads](https://poser.pugx.org/hexanet/settings-bundle/downloads.png)](https://packagist.org/packages/hexanet/settings-bundle) [![Latest stable Version](https://poser.pugx.org/hexanet/settings-bundle/v/stable.png)](https://packagist.org/packages/hexanet/settings-bundle)
+
 Settings system.
 
 ## Installation
