@@ -64,9 +64,9 @@ class AppSchema implements SchemaInterface
 Then declare it as service with the `hexanet.settings_schema` tag :
 
 ```yml
-    app.settings_schema:
-        class: Hexanet\Si\AppBundle\Settings\AppSchema
-        tags: [hexanet.settings_schema]
+app.settings_schema:
+    class: Hexanet\Si\AppBundle\Settings\AppSchema
+    tags: [hexanet.settings_schema]
 ```
 
 After that we can use the `sf hexanet: settings: setup` command to generate all the settings, if a setting already exists the command ignores it.
