@@ -8,6 +8,12 @@
       "Hexanet\\SettingsBundle\\": "src"
     }
   },
+  "authors": [
+    {
+      "name": "Floran Brutel",
+      "email": "fbrutel@hexanet.fr"
+    }
+  ],
   "require": {
     "php": ">=7.1",
     "symfony/dependency-injection": "~3.0|~4.0",
