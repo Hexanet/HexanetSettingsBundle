@@ -96,7 +96,7 @@ $settingsManager->get('not here');
 For production it's possible to activate the cache by modifying the config of the bundle:
 
 ```yaml
-// app/config/config_prod.yml
+// config/packages/prod/hexanet_settings.yaml
 hexanet_settings:
     cache: true
 ```
