@@ -4,8 +4,14 @@ services:
         public: false
         autoconfigure: true
 
-    Hexanet\SettingsBundle\Manager\SettingsManagerInterface: '@hexanet.settings_manager'
-    Hexanet\SettingsBundle\Manager\SettingsManager: '@hexanet.settings_manager'
+    Hexanet\SettingsBundle\Manager\SettingsManagerInterface:
+        alias: hexanet.settings_manager
+        public: true
+
+    Hexanet\SettingsBundle\Manager\SettingsManager:
+        alias: hexanet.settings_manager
+        public: true
+
     hexanet.settings_manager:
         class: Hexanet\SettingsBundle\Manager\SettingsManager
         public: true
@@ -15,7 +21,6 @@ services:
     Hexanet\SettingsBundle\Schema\SettingsBuilder: '@hexanet.settings_builder'
     hexanet.settings_builder:
         class: Hexanet\SettingsBundle\Schema\SettingsBuilder
-        public: true
 
     Hexanet\SettingsBundle\Command\:
         resource: '../../Command/*'
