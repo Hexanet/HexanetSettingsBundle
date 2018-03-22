@@ -2,18 +2,31 @@
 
 namespace Hexanet\SettingsBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Hexanet\SettingsBundle\Schema\SettingsBuilder;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-class SetupSettingsCommand extends ContainerAwareCommand
+class SetupSettingsCommand extends Command
 {
+    protected static $defaultName = 'hexanet:settings:setup';
+
+    /**
+     * @var SettingsBuilder
+     */
+    private $settingsBuilder;
+
+    public function __construct(SettingsBuilder $settingsBuilder)
+    {
+        $this->settingsBuilder = $settingsBuilder;
+
+        parent::__construct(self::$defaultName);
+    }
+
     protected function configure()
     {
-        $this
-            ->setName('hexanet:settings:setup')
-            ->setDescription('Create the settings with their default value, the existing ones are ignored');
+        $this->setDescription('Create the settings with their default value, the existing ones are ignored');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -21,7 +34,7 @@ class SetupSettingsCommand extends ContainerAwareCommand
         $io = new SymfonyStyle($input, $output);
         $io->title('Setup the settings');
 
-        $this->getContainer()->get('hexanet.settings_builder')->build();
+        $this->settingsBuilder->build();
 
         $io->success('The settings have been successfully created');
     }

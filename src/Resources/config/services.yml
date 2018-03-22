@@ -1,10 +1,21 @@
 services:
+    _defaults:
+        autowire: true
+        public: false
+        autoconfigure: true
+
+    Hexanet\SettingsBundle\Manager\SettingsManagerInterface: '@hexanet.settings_manager'
+    Hexanet\SettingsBundle\Manager\SettingsManager: '@hexanet.settings_manager'
     hexanet.settings_manager:
         class: Hexanet\SettingsBundle\Manager\SettingsManager
+        public: true
         arguments:
             - "@doctrine"
 
+    Hexanet\SettingsBundle\Schema\SettingsBuilder: '@hexanet.settings_builder'
     hexanet.settings_builder:
         class: Hexanet\SettingsBundle\Schema\SettingsBuilder
-        arguments:
-            - "@hexanet.settings_manager"
+        public: true
+
+    Hexanet\SettingsBundle\Command\:
+        resource: '../../Command/*'
