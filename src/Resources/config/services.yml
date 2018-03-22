@@ -21,6 +21,8 @@ services:
     Hexanet\SettingsBundle\Schema\SettingsBuilder: '@hexanet.settings_builder'
     hexanet.settings_builder:
         class: Hexanet\SettingsBundle\Schema\SettingsBuilder
+        arguments:
+            $schemas: !tagged hexanet.settings_schema
 
     Hexanet\SettingsBundle\Command\:
         resource: '../../Command/*'
