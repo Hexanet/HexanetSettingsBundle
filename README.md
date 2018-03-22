@@ -32,8 +32,8 @@ public function registerBundles() {
 You have to create the table in the database, to do this we generate a migration:
 
 ```bash
-php app/console doctrine:migrations:diff --filter-expression="/setting$/"
-php app/console doctrine:migrations:migrate
+bin/console doctrine:migrations:diff --filter-expression="/setting$/"
+bin/console doctrine:migrations:migrate
 ```
 
 ## Usage
