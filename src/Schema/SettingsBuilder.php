@@ -16,13 +16,13 @@ class SettingsBuilder
      */
     private $schemas;
 
-    /**
-     * @param SettingsManagerInterface $settingsManager
-     */
-    public function __construct(SettingsManagerInterface $settingsManager)
+    public function __construct(SettingsManagerInterface $settingsManager, iterable $schemas)
     {
         $this->settingsManager = $settingsManager;
-        $this->schemas = [];
+
+        foreach ($schemas as $schema) {
+            $this->schemas[] = $schema;
+        }
     }
 
     public function build() : void
@@ -43,13 +43,5 @@ class SettingsBuilder
         }
 
         $this->settingsManager->set($name, $value);
-    }
-
-    /**
-     * @param SchemaInterface $schema
-     */
-    public function addSchema(SchemaInterface $schema) : void
-    {
-        $this->schemas[] = $schema;
     }
 }

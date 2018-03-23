@@ -9,9 +9,9 @@ use PhpSpec\ObjectBehavior;
 
 class SettingsBuilderSpec extends ObjectBehavior
 {
-    public function let(SettingsManagerInterface $settingsManager)
+    public function let(SettingsManagerInterface $settingsManager, SchemaInterface $schema)
     {
-        $this->beConstructedWith($settingsManager);
+        $this->beConstructedWith($settingsManager, [$schema]);
     }
 
     public function it_is_initializable()
@@ -41,10 +41,9 @@ class SettingsBuilderSpec extends ObjectBehavior
         $this->addSetting($settingName, $settingValue);
     }
 
-    public function it_builds_the_settings_from_schemas(SchemaInterface $schema)
+    public function it_builds_the_settings_from_schemas($schema)
     {
         $schema->build($this)->shouldBeCalled();
-        $this->addSchema($schema);
 
         $this->build();
     }
