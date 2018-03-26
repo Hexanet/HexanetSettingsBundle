@@ -6,6 +6,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Hexanet\SettingsBundle\Schema\SchemaInterface;
 
 class HexanetSettingsExtension extends Extension
 {
@@ -23,5 +24,7 @@ class HexanetSettingsExtension extends Extension
         if ($config['cache']) {
             $loader->load('services_cache.yml');
         }
+
+        $container->registerForAutoconfiguration(SchemaInterface::class)->addTag('hexanet.settings_schema');
     }
 }
