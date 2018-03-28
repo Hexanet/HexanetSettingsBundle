@@ -19,11 +19,11 @@ You have to activate the bundle:
 ```php
 // in app/AppKernel.php
 public function registerBundles() {
-	$bundles = array(
-		// ...
-		new Hexanet\SettingsBundle\HexanetSettingsBundle(),
-	);
-	// ...
+    $bundles = array(
+        // ...
+        new Hexanet\SettingsBundle\HexanetSettingsBundle(),
+    );
+    // ...
 }
 ```
 
@@ -47,7 +47,7 @@ First you need to create a class that extends from the `SchemaInterface` interfa
 ```php
 <?php
 
-namespace Hexanet\Si\AppBundle\Settings\AppSchema;
+namespace App\Settings\AppSchema;
 
 use Hexanet\SettingsBundle\Schema\SettingsBuilder;
 use Hexanet\SettingsBundle\Schema\SchemaInterface;
@@ -64,31 +64,32 @@ class AppSchema implements SchemaInterface
 Then declare it as service with the `hexanet.settings_schema` tag :
 
 ```yml
-app.settings_schema:
-    class: Hexanet\Si\AppBundle\Settings\AppSchema
+App\Settings\AppSchema:
     tags: [hexanet.settings_schema]
 ```
+
+> The bundle provide autoconfiguration for class that implement `SchemaInterface`.
 
 After that we can use the `sf hexanet:settings:setup` command to generate all the settings, if a setting already exists the command ignores it.
 
 ### Examples
 
 ```php
-$settingsManager = $this->get('hexanet.settings_manager');
+public function indexAction(SettinsManagerInterface $settingsManager) {
+    // set and get
+    $settingsManager->set('tva', 19.6);
+    $settingsManager->get('tva');
 
-// set and get
-$settingsManager->set('tva', 19.6);
-$settingsManager->get('tva');
+    // check if settign exists
+    $settingsManager->has('tva');
 
-// check if settign exists
-$settingsManager->has('tva');
+    // get all settings
+    $settingsManager->all();
 
-// get all settings
-$settingsManager->all();
-
-// retrieve a non-existent setting 
-$settingsManager->get('not here');
-//  SettingNotFoundException is throw
+    // retrieve a non-existent setting 
+    $settingsManager->get('not here');
+    //  SettingNotFoundException is throw
+}
 ```
 
 ## Production
