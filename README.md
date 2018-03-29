@@ -98,7 +98,7 @@ App\Settings\AppSchema:
 
 > The bundle provide autoconfiguration for class that implement `SchemaInterface`.
 
-After that we can use the `sf hexanet:settings:setup` command to generate all the settings, if a setting already exists the command ignores it.
+After that we can use the `php bin/console hexanet:settings:setup` command to generate all the settings, if a setting already exists the command ignores it.
 
 ### Examples
 
